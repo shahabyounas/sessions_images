@@ -2,7 +2,7 @@
 
 ## Description
 
-Session Images is a project that provides an API to accept an image URL in the request body, fetches the image from the URL, and stores it in an AWS S3 bucket. The API returns a success message and a pre-signed URL to access the image in the S3 bucket, valid for one hour.
+Session Images API accept an image URL in the request body, fetches the image from the URL, and stores it in an AWS S3 bucket. The API returns a success message and a pre-signed URL to access the image in the S3 bucket, valid for one hour.
 
 ## Installation Instructions
 
@@ -18,9 +18,8 @@ This project uses the Serverless Framework and the ExpressJS backend framework r
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/session-images.git
+   git clone https://github.com/shahabyounas/sessions_images.git
    cd session-images
-   npm install
 
 2. Install the dependencies:
     npm install
@@ -62,6 +61,3 @@ Response:
   "message": "Image successfully uploaded",
   "imgUrl": "https://your-s3-bucket.s3.amazonaws.com/your-image.jpg?AWSAccessKeyId=your-access-key-id&Expires=timestamp&Signature=your-signature"
 }
-
-
-
