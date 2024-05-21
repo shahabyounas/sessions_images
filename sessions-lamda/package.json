@@ -1,0 +1,16 @@
+{
+  "name": "sessions-lamda",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.577.0",
+    "@aws-sdk/s3-request-presigner": "^3.577.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "serverless-http": "^3.1.1"
+  },
+  "devDependencies": {
+    "serverless-offline": "^13.5.1"
+  }
+}
