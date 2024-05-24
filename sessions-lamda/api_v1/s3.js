@@ -1,5 +1,6 @@
-const { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand, ListObjectsV2Command } = require('@aws-sdk/client-s3')
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner")
+const { formatUrl } = require("@aws-sdk/util-format-url");
 
 const bucketName = process.env.AWS_BUCKET_NAME;
 const bucketRegion = process.env.AWS_BUCKET_REGION;
@@ -43,7 +44,23 @@ async function getObjectSignedUrl(key){
     return url
 }
 
+async function getS3Objects(){
+    const command = new ListObjectsV2Command({
+        Bucket: bucketName,
+      });
+
+    const respObj = await s3.send(command);
+
+
+    const contents = respObj.Contents.map((content) => ({ Key: content.Key, Size: content.Size }) )
+
+    return contents
+}
+
+// Route, will fetch the files from the S3 bucket
+
 module.exports = {
     uploadImage,
-    getObjectSignedUrl
+    getObjectSignedUrl,
+    getS3Objects
 }
